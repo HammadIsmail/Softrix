@@ -3585,9 +3585,7 @@ export default function HomePage() {
           }}
         >
           <span>&copy; 2026 Softrix. All rights reserved.</span>
-          <span style={{ color: t.mu }}>
-            Engineered with Next.js, Node.js &amp; Nodemailer
-          </span>
+       
         </div>
       </footer>
 
