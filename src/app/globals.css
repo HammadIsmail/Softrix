@@ -1,26 +1,204 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .chev {
+  transform: rotate(180deg);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  padding: 10px 16px;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 8px;
+  z-index: 200;
+}
+
+.skip-link:focus {
+  left: 16px;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.logo-word {
+  height: 17px;
+  width: auto;
+  display: block;
+}
+
+.desktop-theme-toggle {
+  display: inline-flex;
+}
+
+.book-btn {
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 18px;
+  height: 44px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.book-btn-icon {
+  display: inline-block;
+}
+
+.navlinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .nav-container {
+    height: 64px;
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .logo-link {
+    gap: 8px;
+  }
+
+  .logo-mark {
+    height: 32px;
+  }
+
+  .logo-word {
+    height: 13px;
+  }
+
+  button.desktop-theme-toggle {
+    display: none;
+  }
+
+  .book-btn {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .book-btn-icon {
+    display: none;
+  }
+
+  nav.navlinks {
+    display: none;
+  }
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  button.mobile-menu-btn {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .mobile-menu-drawer {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  div.col-responsive,
+  section.col-responsive {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  div.col-responsive > *,
+  section.col-responsive > * {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
 }
